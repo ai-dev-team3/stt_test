@@ -557,4 +557,3 @@ rawDataInfo.answer      : duration(ms), samplingRate(16kHz), audioPath
 wav 파일명 규칙: `ckmk_{q|a}_ict_{f|m}_{n|e}_{id}.wav` (q=질문, a=답변 / f=여성, m=남성 / n=신입, e=경력)
 
 현재 보유: 8개 세트 (여성 신입 2, 여성 경력 2, 남성 신입 2, 남성 경력 2) → 평가 대상 답변 wav 8개.
-통계적 유의성을 위해 **AI Hub에서 동일 데이터셋 추가 다운로드 권장 (최소 30~50개 답변)**.

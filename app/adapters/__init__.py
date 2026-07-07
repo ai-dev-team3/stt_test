@@ -4,14 +4,14 @@ __all__ = ["NormalizedResult", "STTAdapter", "Word"]
 
 
 def available_adapters() -> dict[str, STTAdapter]:
-    """API 키가 설정된 어댑터만 인스턴스로 반환한다."""
-    from app.adapters.aws import AwsAdapter
+    """API 키(또는 로컬 모델)가 준비된 어댑터만 인스턴스로 반환한다."""
     from app.adapters.clova import ClovaAdapter
-    from app.adapters.google import GoogleAdapter
+    from app.adapters.sensevoice import SenseVoiceAdapter
     from app.adapters.vito import VitoAdapter
+    from app.adapters.whisper import WhisperAdapter
 
     adapters: dict[str, STTAdapter] = {}
-    for cls in (ClovaAdapter, VitoAdapter, GoogleAdapter, AwsAdapter):
+    for cls in (ClovaAdapter, VitoAdapter, WhisperAdapter, SenseVoiceAdapter):
         if cls.is_configured():
             adapters[cls.name] = cls()
     return adapters

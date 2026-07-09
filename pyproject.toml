@@ -19,3 +19,14 @@ dependencies = [
     "uvicorn[standard]>=0.50.1",
     "webrtcvad-wheels>=2.0.14",
 ]
+
+# PyPI의 Windows용 torch 휠은 CPU 전용이라 CUDA 빌드를 별도 인덱스에서 받는다.
+# cu130 = CUDA 13.0 (드라이버 610.62 / CUDA UMD 13.3 하위 호환)
+[[tool.uv.index]]
+name = "pytorch-cu130"
+url = "https://download.pytorch.org/whl/cu130"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu130" }
+torchaudio = { index = "pytorch-cu130" }

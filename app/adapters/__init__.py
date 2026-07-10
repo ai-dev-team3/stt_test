@@ -9,9 +9,22 @@ def available_adapters() -> dict[str, STTAdapter]:
     from app.adapters.sensevoice import SenseVoiceAdapter
     from app.adapters.vito import VitoAdapter
     from app.adapters.whisper import WhisperAdapter
+    from app.adapters.whisper_small import WhisperSmallAdapter
+    from app.adapters.whisper_base import WhisperBaseAdapter
+    from app.adapters.whisper_tiny import WhisperTinyAdapter
+    from app.adapters.whisper_turbo import WhisperTurboAdapter
 
     adapters: dict[str, STTAdapter] = {}
-    for cls in (ClovaAdapter, VitoAdapter, WhisperAdapter, SenseVoiceAdapter):
+    for cls in (
+        ClovaAdapter,
+        VitoAdapter,
+        WhisperAdapter,
+        SenseVoiceAdapter,
+        WhisperSmallAdapter,
+        WhisperBaseAdapter,
+        WhisperTinyAdapter,
+        WhisperTurboAdapter,
+    ):
         if cls.is_configured():
             adapters[cls.name] = cls()
     return adapters
